@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeradorCNAB.Models.Segmentos
 {
-    class SegmentoB
+    public class SegmentoB
     {
         public string Controle_Banco;
         public string Controle_Lote;

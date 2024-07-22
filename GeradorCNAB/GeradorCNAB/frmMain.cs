@@ -1,4 +1,5 @@
-﻿using GeradorCNAB.Models.API;
+﻿using GeradorCNAB.Controllers;
+using GeradorCNAB.Models.API;
 using GeradorCNAB.Models.Arquivos;
 using Newtonsoft.Json;
 using System;
@@ -109,6 +110,8 @@ namespace GeradorCNAB
            if(ValidarCamposHeaderArquivo())
             {
                 Header_Arquivo header = PreencherHeader();
+                Arquivo arquivo = new Arquivo();
+                arquivo.HeaderArquiv(header);
             }
         }
 
@@ -117,11 +120,12 @@ namespace GeradorCNAB
             Header_Arquivo header;
             try
             {
-                string Banco = cmbBancos.SelectedValue.ToString();
+                Bancos banco = (Bancos)cmbBancos.SelectedItem;
+                string Banco = banco.code.ToString();
                 string Lote = txtNSA.Text;
                 string Registro = "0";
                 string CNAB1 = "";
-                string Empresa_Inscricao_Tipo = cmbTipoInscricaoEmpresa.SelectedValue.ToString();
+                string Empresa_Inscricao_Tipo = "";//cmbTipoInscricaoEmpresa.SelectedValue.ToString();
                 string Empresa_Inscricao_Numero = txtNumeroInscricaoEmpresa.Text;
                 string Empresa_Convenio = txtCodigoConvenioBanco.Text;
                 string Empresa_ContaCorrente_Agencia_Codigo = txtAgencia.Text;
@@ -130,7 +134,7 @@ namespace GeradorCNAB
                 string Empresa_ContaCorrente_Conta_AG_DV = "";
                 string Empresa_ContaCorrente_Conta_DV = txtDVConta.Text;
                 string Empresa_Nome = txtNomeEmpresa.Text;
-                string NomeBanco = cmbBancos.SelectedText.ToString();
+                string NomeBanco = banco.fullName;
                 string CNAB2 = "";
                 string Arquivo_Codigo = "1";
                 string Arquivo_DataGeracao = dtpDataGeracaoArquivo.Text;

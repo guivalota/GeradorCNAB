@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeradorCNAB.Models.Arquivos
 {
-    class Header_Arquivo
+    public class Header_Arquivo
     {
         public string Banco;
         public string Lote;
@@ -66,6 +66,16 @@ namespace GeradorCNAB.Models.Arquivos
             Reservado_Banco = reservado_Banco;
             Reservado_Empresa = reservado_Empresa;
             CNAB3 = cNAB3;
+        }
+
+
+        public string EscreverLinha()
+        {
+            return  Banco + Lote +Registro + CNAB1 + Empresa_Inscricao_Tipo + Empresa_Inscricao_Numero +
+                    Empresa_Convenio+Empresa_ContaCorrente_Agencia_Codigo+ Empresa_ContaCorrente_Agencia_DV +
+                    Empresa_ContaCorrente_Conta_Numero+Empresa_ContaCorrente_Conta_AG_DV+ Empresa_ContaCorrente_Conta_DV +
+                    Empresa_Nome+NomeBanco+CNAB2+Arquivo_Codigo+Arquivo_DataGeracao+Arquivo_HoraGeracao +
+                    Arquivo_SequenciaNSA+Arquivo_Leiaute+Arquivo_Densidade+Reservado_Banco+Reservado_Empresa+CNAB3;
         }
     }
 }

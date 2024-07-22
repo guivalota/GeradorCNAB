@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeradorCNAB.Models.Segmentos
 {
-    class SegmentoA
+    public class SegmentoA
     {
         public string Controle_Banco;
         public string Controle_Lote;
@@ -38,6 +38,6 @@ namespace GeradorCNAB.Models.Segmentos
         public string CNAB1;
         public string Aviso;
         public string Ocorrencia;
-        public SegmentoB SegmentoB; = null;
+        public SegmentoB SegmentoB = null;
     }
 }
