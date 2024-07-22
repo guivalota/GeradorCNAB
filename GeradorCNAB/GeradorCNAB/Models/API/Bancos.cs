@@ -8,10 +8,10 @@ namespace GeradorCNAB.Models.API
 {
     class Bancos
     {
-        public string ispb { get; set; }
-        public string name { get; set; }
-        public int? code { get; set; }
-        public string fullName { get; set; }
+        public string ispb;
+        public string name;
+        public int? code;
+        public string fullName;
 
         public string DisplayName
         {

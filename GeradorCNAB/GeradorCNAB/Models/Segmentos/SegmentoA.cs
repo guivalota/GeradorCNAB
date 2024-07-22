@@ -8,36 +8,36 @@ namespace GeradorCNAB.Models.Segmentos
 {
     class SegmentoA
     {
-        public string Controle_Banco { get; set; }
-        public string Controle_Lote { get; set; }
-        public string Controle_Registro { get; set; }
-        public string Servico_Numero { get; set; }
-        public string Servico_Segmento { get; set; }
-        public string Servico_Movimento_Tipo { get; set; }
-        public string Servico_Movimento_Codigo { get; set; }
-        public string Favorecido_Camara { get; set; }
-        public string Favorecido_Banco { get; set; }
-        public string Favorecido_ContaCorrente_Agencia_Codigo { get; set; }
-        public string Favorecido_ContaCorrente_Agencia_DV { get; set; }
-        public string Favorecido_ContaCorrente_Conta_Numero { get; set; }
-        public string Favorecido_ContacCorrente_Conta_DV { get; set; }
-        public string Favorecido_Contacorrente_DV { get; set; }
-        public string Favorecido_Nome { get; set; }
-        public string Favorecido_SeuNumero { get; set; }
-        public string Data_Pagamento { get; set; }
-        public string Credito_Moeda_Tipo { get; set; }
-        public string Credito_Moeda_Quantidade { get; set; }
-        public string Credito_ValorPagamento { get; set; }
-        public string Credito_NossoNumero { get; set; }
-        public string Credito_DataReal { get; set; }
-        public string Credito_ValorReal { get; set; }
-        public string Informacao2 { get; set; }
-        public string CodigoFinalidadeDOC { get; set; }
-        public string CodigoFinalidadeTED { get; set; }
-        public string CodigoFinalidadeComplementar { get; set; }
-        public string CNAB1 { get; set; }
-        public string Aviso { get; set; }
-        public string Ocorrencia { get; set; }
-        public SegmentoB SegmentoB { get; set; } = null;
+        public string Controle_Banco;
+        public string Controle_Lote;
+        public string Controle_Registro;
+        public string Servico_Numero;
+        public string Servico_Segmento;
+        public string Servico_Movimento_Tipo;
+        public string Servico_Movimento_Codigo;
+        public string Favorecido_Camara;
+        public string Favorecido_Banco;
+        public string Favorecido_ContaCorrente_Agencia_Codigo;
+        public string Favorecido_ContaCorrente_Agencia_DV;
+        public string Favorecido_ContaCorrente_Conta_Numero;
+        public string Favorecido_ContacCorrente_Conta_DV;
+        public string Favorecido_Contacorrente_DV;
+        public string Favorecido_Nome;
+        public string Favorecido_SeuNumero;
+        public string Data_Pagamento;
+        public string Credito_Moeda_Tipo;
+        public string Credito_Moeda_Quantidade;
+        public string Credito_ValorPagamento;
+        public string Credito_NossoNumero;
+        public string Credito_DataReal;
+        public string Credito_ValorReal;
+        public string Informacao2;
+        public string CodigoFinalidadeDOC;
+        public string CodigoFinalidadeTED;
+        public string CodigoFinalidadeComplementar;
+        public string CNAB1;
+        public string Aviso;
+        public string Ocorrencia;
+        public SegmentoB SegmentoB; = null;
     }
 }

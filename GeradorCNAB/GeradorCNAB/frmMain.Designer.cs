@@ -44,7 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.cmbTipoInscricaoEmpresa = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtNimeroInscricaoEmpresa = new System.Windows.Forms.TextBox();
+            this.txtNumeroInscricaoEmpresa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCodigoConvenioBanco = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtNSA = new System.Windows.Forms.TextBox();
             this.txtVLayout = new System.Windows.Forms.TextBox();
+            this.btnGerarArquivo = new System.Windows.Forms.Button();
             this.gbHeaderArquivo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             this.gbHeaderArquivo.Controls.Add(this.label10);
             this.gbHeaderArquivo.Controls.Add(this.txtCodigoConvenioBanco);
             this.gbHeaderArquivo.Controls.Add(this.label9);
-            this.gbHeaderArquivo.Controls.Add(this.txtNimeroInscricaoEmpresa);
+            this.gbHeaderArquivo.Controls.Add(this.txtNumeroInscricaoEmpresa);
             this.gbHeaderArquivo.Controls.Add(this.label8);
             this.gbHeaderArquivo.Controls.Add(this.cmbTipoInscricaoEmpresa);
             this.gbHeaderArquivo.Controls.Add(this.label7);
@@ -190,6 +191,7 @@
             // 
             // txtNomeEmpresa
             // 
+            this.txtNomeEmpresa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeEmpresa.Location = new System.Drawing.Point(112, 80);
             this.txtNomeEmpresa.MaxLength = 30;
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
@@ -222,14 +224,14 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Número de Inscrição da Empresa:";
             // 
-            // txtNimeroInscricaoEmpresa
+            // txtNumeroInscricaoEmpresa
             // 
-            this.txtNimeroInscricaoEmpresa.Location = new System.Drawing.Point(476, 136);
-            this.txtNimeroInscricaoEmpresa.MaxLength = 14;
-            this.txtNimeroInscricaoEmpresa.Name = "txtNimeroInscricaoEmpresa";
-            this.txtNimeroInscricaoEmpresa.Size = new System.Drawing.Size(90, 20);
-            this.txtNimeroInscricaoEmpresa.TabIndex = 15;
-            this.txtNimeroInscricaoEmpresa.Text = "0000000000000";
+            this.txtNumeroInscricaoEmpresa.Location = new System.Drawing.Point(476, 136);
+            this.txtNumeroInscricaoEmpresa.MaxLength = 14;
+            this.txtNumeroInscricaoEmpresa.Name = "txtNumeroInscricaoEmpresa";
+            this.txtNumeroInscricaoEmpresa.Size = new System.Drawing.Size(90, 20);
+            this.txtNumeroInscricaoEmpresa.TabIndex = 15;
+            this.txtNumeroInscricaoEmpresa.Text = "0000000000000";
             // 
             // label9
             // 
@@ -242,6 +244,7 @@
             // 
             // txtCodigoConvenioBanco
             // 
+            this.txtCodigoConvenioBanco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCodigoConvenioBanco.Location = new System.Drawing.Point(163, 107);
             this.txtCodigoConvenioBanco.MaxLength = 20;
             this.txtCodigoConvenioBanco.Name = "txtCodigoConvenioBanco";
@@ -318,11 +321,22 @@
             this.txtVLayout.TabIndex = 26;
             this.txtVLayout.Text = "103";
             // 
+            // btnGerarArquivo
+            // 
+            this.btnGerarArquivo.Location = new System.Drawing.Point(473, 247);
+            this.btnGerarArquivo.Name = "btnGerarArquivo";
+            this.btnGerarArquivo.Size = new System.Drawing.Size(111, 23);
+            this.btnGerarArquivo.TabIndex = 1;
+            this.btnGerarArquivo.Text = "Gerar Arquivo";
+            this.btnGerarArquivo.UseVisualStyleBackColor = true;
+            this.btnGerarArquivo.Click += new System.EventHandler(this.btnGerarArquivo_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 260);
+            this.ClientSize = new System.Drawing.Size(591, 278);
+            this.Controls.Add(this.btnGerarArquivo);
             this.Controls.Add(this.gbHeaderArquivo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -360,10 +374,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCodigoConvenioBanco;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtNimeroInscricaoEmpresa;
+        private System.Windows.Forms.TextBox txtNumeroInscricaoEmpresa;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cmbTipoInscricaoEmpresa;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnGerarArquivo;
     }
 }
 

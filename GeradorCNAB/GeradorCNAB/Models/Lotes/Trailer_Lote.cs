@@ -8,15 +8,15 @@ namespace GeradorCNAB.Models.Lotes
 {
     class Trailer_Lote
     {
-        public string Controle_Banco { get; set; }
-        public string Controle_Lote { get; set; }
-        public string Controle_Registro { get; set; }
-        public string CNAB1 { get; set; }
-        public string Totais_Qtd_Registros { get; set; }
-        public string Totais_Valor { get; set; }
-        public string Totais_Qtd_Moeda { get; set; }
-        public string Numero_aviso_Debito { get; set; }
-        public string CNAB2 { get; set; }
-        public string Ocorrencia { get; set; }
+        public string Controle_Banco;
+        public string Controle_Lote;
+        public string Controle_Registro;
+        public string CNAB1;
+        public string Totais_Qtd_Registros;
+        public string Totais_Valor;
+        public string Totais_Qtd_Moeda;
+        public string Numero_aviso_Debito;
+        public string CNAB2;
+        public string Ocorrencia;
     }
 }
