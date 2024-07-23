@@ -15,7 +15,16 @@ namespace GeradorCNAB.Models.Lotes
 
         public string EscreverLinha()
         {
-            return header.EscreverLinha() + Environment.NewLine +trailer.EscreverLinha();
+            string segmento = "";
+            foreach(SegmentoA item in segmentos)
+            {
+                segmento += item.EscreverLinha();
+            }
+            return header.EscreverLinha() +
+                Environment.NewLine +
+                segmento + 
+                Environment.NewLine +
+                trailer.EscreverLinha();
         }
     }
 }
