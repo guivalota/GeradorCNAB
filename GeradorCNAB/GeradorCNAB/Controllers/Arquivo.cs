@@ -15,15 +15,13 @@ namespace GeradorCNAB.Controllers
     }
     public class Arquivo
     {
-        public string caminhoArquivo = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory.ToString()) + "\\teste.txt";
-
-        public void HeaderArquiv(Header_Arquivo header)
+        private static string nomeArquivo = "teste.txt";
+        public void GerarArquivo(string caminhoArquivo, Header_Arquivo header, Trailer_Arquivo trailer)
         {
             header = FormatarHeaderArquivo(header);
-            Trailer_Arquivo trailer_Arquivo = new Trailer_Arquivo();
 
-            trailer_Arquivo = FormatarTrailerArquivo(trailer_Arquivo);
-            CriarArquivo(header, trailer_Arquivo);
+            trailer = FormatarTrailerArquivo(trailer);
+            CriarArquivo(caminhoArquivo, header, trailer);
         }
 
         private Header_Arquivo FormatarHeaderArquivo(Header_Arquivo header)
@@ -35,7 +33,7 @@ namespace GeradorCNAB.Controllers
 
             header.Empresa_Inscricao_Tipo = FormatarCampo(header.Empresa_Inscricao_Tipo, ' ', 1, Sentido.Right);
             header.Empresa_Inscricao_Numero = FormatarCampo(header.Empresa_Inscricao_Numero, ' ', 14, Sentido.Right);
-            header.Empresa_Convenio = FormatarCampo(header.Empresa_Convenio, ' ', 17, Sentido.Right);
+            header.Empresa_Convenio = FormatarCampo(header.Empresa_Convenio, ' ', 20, Sentido.Right);
             header.Empresa_ContaCorrente_Agencia_Codigo = FormatarCampo(header.Empresa_ContaCorrente_Agencia_Codigo, '0', 5, Sentido.Left);
             header.Empresa_ContaCorrente_Agencia_DV = FormatarCampo(header.Empresa_ContaCorrente_Agencia_DV, '0', 1, Sentido.Left);
             header.Empresa_ContaCorrente_Conta_Numero = FormatarCampo(header.Empresa_ContaCorrente_Conta_Numero, '0', 12, Sentido.Left);
@@ -48,7 +46,8 @@ namespace GeradorCNAB.Controllers
             header.Arquivo_Codigo = FormatarCampo(header.Arquivo_Codigo, ' ', 1, Sentido.Left);
             header.Arquivo_DataGeracao = FormatarCampo(RemoverCaracteres(header.Arquivo_DataGeracao), ' ', 8, Sentido.Left);
             header.Arquivo_HoraGeracao = FormatarCampo(RemoverCaracteres(header.Arquivo_HoraGeracao), ' ', 6, Sentido.Left);
-            header.Arquivo_SequenciaNSA = FormatarCampo(header.Arquivo_SequenciaNSA, ' ', 3, Sentido.Left);
+            header.Arquivo_SequenciaNSA = FormatarCampo(header.Arquivo_SequenciaNSA, ' ', 6, Sentido.Left);
+            header.Arquivo_Leiaute = FormatarCampo(header.Arquivo_Leiaute, '0', 3, Sentido.Left);
             header.Arquivo_Densidade = FormatarCampo(header.Arquivo_Densidade, ' ', 5, Sentido.Right);
             header.Reservado_Banco = FormatarCampo(header.Reservado_Banco, ' ', 20, Sentido.Right);
             header.Reservado_Empresa = FormatarCampo(header.Reservado_Empresa, ' ', 20, Sentido.Right);
@@ -58,13 +57,14 @@ namespace GeradorCNAB.Controllers
 
         private Trailer_Arquivo FormatarTrailerArquivo(Trailer_Arquivo trailer)
         {
-            trailer.Banco = FormatarCampo(trailer.Banco, ' ', 3, Sentido.Left);
+            trailer.Banco = FormatarCampo(trailer.Banco, '0', 3, Sentido.Left);
             trailer.Lote = FormatarCampo(trailer.Lote, '9', 4, Sentido.Left);
             trailer.Registro = FormatarCampo(trailer.Registro, '9', 1, Sentido.Left);
             trailer.CNAB1 = FormatarCampo(trailer.CNAB1, ' ', 9, Sentido.Left);
             trailer.Totais_QtdLotes = FormatarCampo(trailer.Totais_QtdLotes, '0', 6, Sentido.Left);
             trailer.Totais_QtdRegistros = FormatarCampo(trailer.Totais_QtdRegistros, '0', 6, Sentido.Left);
-            trailer.Totais_QtdContas_Concil = FormatarCampo(trailer.Totais_QtdContas_Concil, ' ', 205, Sentido.Right);
+            trailer.Totais_QtdContas_Concil = FormatarCampo(trailer.Totais_QtdContas_Concil, '0', 6, Sentido.Right);
+            trailer.CNAB2 = FormatarCampo(trailer.CNAB1, ' ', 205, Sentido.Left);
             return trailer;
         }
 
@@ -99,11 +99,11 @@ namespace GeradorCNAB.Controllers
         }
 
 
-        private void CriarArquivo(Header_Arquivo header_Arquivo, Trailer_Arquivo trailer_Arquivo)
+        private void CriarArquivo(string caminhoArquivo, Header_Arquivo header_Arquivo, Trailer_Arquivo trailer_Arquivo)
         {
             try
             {
-                StreamWriter sw = new StreamWriter(caminhoArquivo);
+                StreamWriter sw = new StreamWriter(caminhoArquivo+"\\"+nomeArquivo);
                 sw.WriteLine(header_Arquivo.EscreverLinha());
 
                 sw.WriteLine(trailer_Arquivo.EscreverLinha());

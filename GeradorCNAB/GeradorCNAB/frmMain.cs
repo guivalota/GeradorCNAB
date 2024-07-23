@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -19,13 +20,27 @@ namespace GeradorCNAB
     public partial class frmMain : Form
     {
         static HttpClient client = new HttpClient();
+        string caminhoArquivo = "";
         public frmMain()
         {
-            PesquisarTodosBancosAsync();
+            
             InitializeComponent();
+            ConfigurarTela();
         }
 
-
+        private void ConfigurarTela()
+        {
+            try
+            {
+                PesquisarTodosBancosAsync();
+                caminhoArquivo = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
+                txtCaminhoArquivo.Text = caminhoArquivo;
+            }
+            catch(Exception ex)
+            {
+                Console.Write("Erro:" + ex.Message);
+            }
+        }
 
         private async Task PesquisarTodosBancosAsync()
         {
@@ -110,8 +125,27 @@ namespace GeradorCNAB
            if(ValidarCamposHeaderArquivo())
             {
                 Header_Arquivo header = PreencherHeader();
+                Trailer_Arquivo trailer = PreencherTrailer();
                 Arquivo arquivo = new Arquivo();
-                arquivo.HeaderArquiv(header);
+                arquivo.GerarArquivo(caminhoArquivo, header, trailer);
+                MessageBox.Show("Arquivo Gerado com sucesso");
+            }
+        }
+
+        private void btnSelecionarArquivo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                fbdArquivoSaida.ShowDialog();
+                string result = fbdArquivoSaida.SelectedPath;
+                if (!String.IsNullOrEmpty(result)){
+                    caminhoArquivo = result;
+                    txtCaminhoArquivo.Text = caminhoArquivo;
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.Write("Erro:" + ex.Message);
             }
         }
 
@@ -155,10 +189,35 @@ namespace GeradorCNAB
 
             }catch(Exception ex)
             {
+                Console.Write("Erro:" + ex.Message);
                 header = null;
             }
 
             return header;
         }
+
+        private Trailer_Arquivo PreencherTrailer()
+        {
+            Trailer_Arquivo trailer;
+            try
+            {
+                Bancos banco = (Bancos)cmbBancos.SelectedItem;
+                string Banco = banco.code.ToString();
+                string Lote = "";
+                string Registro = "9";
+                string CNAB1 = "";
+                string Totais_QtdLotes = "0";
+                string Totais_QtdRegistros = "0";
+                string Totais_QtdContas_Concil = "0";
+                string CNAB2 ="";
+                trailer = new Trailer_Arquivo(Banco, Lote, Registro, CNAB1, Totais_QtdLotes, Totais_QtdRegistros, Totais_QtdContas_Concil, CNAB2);
+            }catch(Exception ex)
+            {
+                Console.Write("Erro:" + ex.Message);
+                trailer = null;
+            }
+            return trailer;
+        }
+
     }
 }

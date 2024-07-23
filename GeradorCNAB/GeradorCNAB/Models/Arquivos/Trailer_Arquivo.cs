@@ -17,6 +17,21 @@ namespace GeradorCNAB.Models.Arquivos
         public string Totais_QtdContas_Concil { get; set; }
         public string CNAB2 { get; set; }
 
+        public Trailer_Arquivo(){}
+
+        public Trailer_Arquivo(string banco, string lote, string registro, string cNAB1,
+            string totais_QtdLotes, string totais_QtdRegistros, string totais_QtdContas_Concil,string cNAB2)
+        {
+            Banco = banco;
+            Lote = lote;
+            Registro = registro;
+            CNAB1 = cNAB1;
+            Totais_QtdLotes = totais_QtdLotes;
+            Totais_QtdRegistros = totais_QtdRegistros;
+            Totais_QtdContas_Concil = totais_QtdContas_Concil;
+            CNAB2 = cNAB2;
+        }
+
         public string EscreverLinha()
         {
             return Banco + Lote + Registro + CNAB1 + Totais_QtdLotes + Totais_QtdRegistros +
