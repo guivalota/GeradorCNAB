@@ -84,9 +84,11 @@
     <Compile Include="Models\API\Bancos.cs" />
     <Compile Include="Models\API\ComboBoxComponets.cs" />
     <Compile Include="Models\API\Estado_IBGE.cs" />
+    <Compile Include="Models\Arquivos\Arquivo_Inf.cs" />
     <Compile Include="Models\Arquivos\Header_Arquivo.cs" />
     <Compile Include="Models\Arquivos\Trailer_Arquivo.cs" />
     <Compile Include="Models\Lotes\Header_Lote.cs" />
+    <Compile Include="Models\Lotes\Lote_Inf.cs" />
     <Compile Include="Models\Lotes\Trailer_Lote.cs" />
     <Compile Include="Models\Segmentos\SegmentoA.cs" />
     <Compile Include="Models\Segmentos\SegmentoB.cs" />

@@ -773,21 +773,25 @@
             // txtCEP_Lote
             // 
             this.txtCEP_Lote.Location = new System.Drawing.Point(299, 260);
-            this.txtCEP_Lote.MaxLength = 9;
+            this.txtCEP_Lote.MaxLength = 8;
             this.txtCEP_Lote.Name = "txtCEP_Lote";
             this.txtCEP_Lote.Size = new System.Drawing.Size(63, 20);
             this.txtCEP_Lote.TabIndex = 66;
             // 
             // txtLogradouroCidade_Lote
             // 
+            this.txtLogradouroCidade_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLogradouroCidade_Lote.Location = new System.Drawing.Point(61, 260);
+            this.txtLogradouroCidade_Lote.MaxLength = 20;
             this.txtLogradouroCidade_Lote.Name = "txtLogradouroCidade_Lote";
             this.txtLogradouroCidade_Lote.Size = new System.Drawing.Size(200, 20);
             this.txtLogradouroCidade_Lote.TabIndex = 65;
             // 
             // txtLogradouroComplemento_Lote
             // 
+            this.txtLogradouroComplemento_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLogradouroComplemento_Lote.Location = new System.Drawing.Point(437, 234);
+            this.txtLogradouroComplemento_Lote.MaxLength = 15;
             this.txtLogradouroComplemento_Lote.Name = "txtLogradouroComplemento_Lote";
             this.txtLogradouroComplemento_Lote.Size = new System.Drawing.Size(121, 20);
             this.txtLogradouroComplemento_Lote.TabIndex = 64;
@@ -795,13 +799,16 @@
             // txtLogradouroNumero_Lote
             // 
             this.txtLogradouroNumero_Lote.Location = new System.Drawing.Point(319, 234);
+            this.txtLogradouroNumero_Lote.MaxLength = 5;
             this.txtLogradouroNumero_Lote.Name = "txtLogradouroNumero_Lote";
             this.txtLogradouroNumero_Lote.Size = new System.Drawing.Size(34, 20);
             this.txtLogradouroNumero_Lote.TabIndex = 63;
             // 
             // txtLogradouro_Lote
             // 
+            this.txtLogradouro_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLogradouro_Lote.Location = new System.Drawing.Point(70, 234);
+            this.txtLogradouro_Lote.MaxLength = 30;
             this.txtLogradouro_Lote.Name = "txtLogradouro_Lote";
             this.txtLogradouro_Lote.Size = new System.Drawing.Size(191, 20);
             this.txtLogradouro_Lote.TabIndex = 62;

@@ -1,17 +1,14 @@
 ﻿using GeradorCNAB.Controllers;
 using GeradorCNAB.Models.API;
 using GeradorCNAB.Models.Arquivos;
+using GeradorCNAB.Models.Lotes;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,9 +18,10 @@ namespace GeradorCNAB
     {
         static HttpClient client = new HttpClient();
         string caminhoArquivo = "";
+
+        List<Lote_Inf> lotes = new List<Lote_Inf>();
         public frmMain()
         {
-            
             InitializeComponent();
             ConfigurarTela();
         }
@@ -39,12 +37,18 @@ namespace GeradorCNAB
 
                 cmbTipoInscricaoEmpresaArquivo.DisplayMember = "Item2";
                 cmbTipoInscricaoEmpresaArquivo.ValueMember = "Item1";
+
+                cmbTipoInscricaoEmpresa_Lote.DisplayMember = "Item2";
+                cmbTipoInscricaoEmpresa_Lote.ValueMember = "Item1";
                 foreach (var item in ComboBoxComponets.tipoRegistroEmpresa)
                 {
                     cmbTipoInscricaoEmpresaArquivo.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
-                    
+                    cmbTipoInscricaoEmpresa_Lote.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
+
+
                 }
                 cmbTipoInscricaoEmpresaArquivo.SelectedIndex = 0;
+                cmbTipoInscricaoEmpresa_Lote.SelectedIndex = 0;
 
                 cmbTipoOperacao.DisplayMember = "Item2";
                 cmbTipoOperacao.ValueMember = "Item1";
@@ -195,8 +199,9 @@ namespace GeradorCNAB
             {
                 Header_Arquivo header = PreencherHeader();
                 Trailer_Arquivo trailer = PreencherTrailer();
+                lotes.Add(PreencherLote());
                 Arquivo arquivo = new Arquivo();
-                arquivo.GerarArquivo(caminhoArquivo, header, trailer);
+                arquivo.GerarArquivo(caminhoArquivo, header, trailer, lotes);
                 MessageBox.Show("Arquivo Gerado com sucesso");
             }
         }
@@ -286,6 +291,74 @@ namespace GeradorCNAB
                 trailer = null;
             }
             return trailer;
+        }
+
+        private Lote_Inf PreencherLote()
+        {
+            Lote_Inf lote;
+            try
+            {
+                //Header do lote
+                lote = new Lote_Inf();
+                Header_Lote header;
+                Bancos banco = (Bancos)cmbBancosLote.SelectedItem;
+                string Controle_Banco = banco.code.ToString();
+                string Controle_Lote = "";
+                string Controle_Registro = "1";
+                string Servico_Operacao = cmbTipoOperacao.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbTipoOperacao.SelectedItem, null).ToString();
+                string Servico_Servico = cmbTipoServico.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbTipoServico.SelectedItem, null).ToString();
+                string Servico_Forma_Lancamento = cmbTipoOperacao.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbTipoOperacao.SelectedItem, null).ToString();
+                string Servico_Layout_Lote = cmbIndicativoFormaPagamento_Lote.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbIndicativoFormaPagamento_Lote.SelectedItem, null).ToString();
+                string CNAB1 = "";
+                string Empresa_Inscricao_Tipo = cmbTipoInscricaoEmpresa_Lote.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbTipoInscricaoEmpresa_Lote.SelectedItem, null).ToString();
+                string Empresa_Inscricao_Numero = txtNumeroInscricaoEmpresa_Lote.Text;
+                string Empresa_Convenio = txtCodigoConvenioBanco_Lote.Text;
+                string Empresa_ContaCorrente_Agencia_Codigo = txtAgencia_Lote.Text;
+                string Empresa_ContaCorrente_Agencia_DV = txtDVAgencia_Lote.Text;
+                string Empresa_ContaCorrente_Conta_Numero = txtConta_Lote.Text;
+                string Empresa_ContaCorrente_Conta_AG_DV = "";
+                string Empresa_ContaCorrente_Conta_DV = txtDVConta_Lote.Text;
+                string Empresa_Nome = txtNomeEmpresa_Lote.Text;
+                string Empresa_Informacao1 = txtMensagem_Lote.Text;
+                string Endereco_Logradouro = txtLogradouro_Lote.Text;
+                string Endereco_Numero = txtLogradouroNumero_Lote.Text;
+                string Endereco_Complemento = txtLogradouroComplemento_Lote.Text;
+                string Endereco_Cidade = txtLogradouroCidade_Lote.Text;
+                string Endereco_CEP = txtCEP_Lote.Text;
+                string Endereco_Complemento_CEP = txtCEP_Lote.Text.Substring(txtCEP_Lote.Text.Length-3, 3);
+                string Endereco_Sigla_Estado = cmbEstado_Lote.SelectedItem.GetType().GetProperty("sigla").GetValue(cmbEstado_Lote.SelectedItem, null).ToString();
+                string Indicativo_Forma_Pagamento = cmbIndicativoFormaPagamento_Lote.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbIndicativoFormaPagamento_Lote.SelectedItem, null).ToString();
+                string CNAB2 = "";
+                string Ocorrencias = "";
+                header = new Header_Lote(Controle_Banco, Controle_Lote, Controle_Registro, Servico_Operacao,
+                                Servico_Servico, Servico_Forma_Lancamento, Servico_Layout_Lote, CNAB1,
+                                Empresa_Inscricao_Tipo, Empresa_Inscricao_Numero, Empresa_Convenio,
+                                Empresa_ContaCorrente_Agencia_Codigo, Empresa_ContaCorrente_Agencia_DV,
+                                Empresa_ContaCorrente_Conta_Numero, Empresa_ContaCorrente_Conta_AG_DV,
+                                Empresa_ContaCorrente_Conta_DV, Empresa_Nome, Empresa_Informacao1,
+                                Endereco_Logradouro, Endereco_Numero, Endereco_Complemento, Endereco_Cidade,
+                                Endereco_CEP, Endereco_Complemento_CEP, Endereco_Sigla_Estado, Indicativo_Forma_Pagamento,
+                                CNAB2,Ocorrencias);
+                lote.header = header;
+
+                //Trailer do Lote
+                string Controle_Registro_Lote = "5";
+                string Totais_Qtd_Registros="0";
+                string Totais_Valor = "0";
+                string Totais_Qtd_Moeda ="0";
+                string Numero_aviso_Debito = "0";
+                Trailer_Lote trailer = new Trailer_Lote(Controle_Banco, Controle_Lote,
+                    Controle_Registro_Lote, CNAB1, Totais_Qtd_Registros,
+                    Totais_Valor, Totais_Qtd_Moeda, Numero_aviso_Debito,CNAB2, Ocorrencias);
+                lote.trailer = trailer;
+
+            }
+            catch(Exception ex)
+            {
+                Console.Write("Erro:" + ex.Message);
+                lote = null;
+            }
+            return lote;
         }
 
     }
