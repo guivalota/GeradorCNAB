@@ -20,7 +20,10 @@ namespace GeradorCNAB.Controllers
         public void HeaderArquiv(Header_Arquivo header)
         {
             header = FormatarHeaderArquivo(header);
-            CriarArquivo(header);
+            Trailer_Arquivo trailer_Arquivo = new Trailer_Arquivo();
+
+            trailer_Arquivo = FormatarTrailerArquivo(trailer_Arquivo);
+            CriarArquivo(header, trailer_Arquivo);
         }
 
         private Header_Arquivo FormatarHeaderArquivo(Header_Arquivo header)
@@ -51,6 +54,18 @@ namespace GeradorCNAB.Controllers
             header.Reservado_Empresa = FormatarCampo(header.Reservado_Empresa, ' ', 20, Sentido.Right);
             header.CNAB3 = FormatarCampo(header.CNAB3, ' ', 29, Sentido.Right);
             return header;
+        }
+
+        private Trailer_Arquivo FormatarTrailerArquivo(Trailer_Arquivo trailer)
+        {
+            trailer.Banco = FormatarCampo(trailer.Banco, ' ', 3, Sentido.Left);
+            trailer.Lote = FormatarCampo(trailer.Lote, '9', 4, Sentido.Left);
+            trailer.Registro = FormatarCampo(trailer.Registro, '9', 1, Sentido.Left);
+            trailer.CNAB1 = FormatarCampo(trailer.CNAB1, ' ', 9, Sentido.Left);
+            trailer.Totais_QtdLotes = FormatarCampo(trailer.Totais_QtdLotes, '0', 6, Sentido.Left);
+            trailer.Totais_QtdRegistros = FormatarCampo(trailer.Totais_QtdRegistros, '0', 6, Sentido.Left);
+            trailer.Totais_QtdContas_Concil = FormatarCampo(trailer.Totais_QtdContas_Concil, ' ', 205, Sentido.Right);
+            return trailer;
         }
 
 
@@ -84,13 +99,14 @@ namespace GeradorCNAB.Controllers
         }
 
 
-        private void CriarArquivo(Header_Arquivo header_Arquivo)
+        private void CriarArquivo(Header_Arquivo header_Arquivo, Trailer_Arquivo trailer_Arquivo)
         {
             try
             {
                 StreamWriter sw = new StreamWriter(caminhoArquivo);
                 sw.WriteLine(header_Arquivo.EscreverLinha());
 
+                sw.WriteLine(trailer_Arquivo.EscreverLinha());
                 sw.Close();
             }
             catch(Exception ex)
