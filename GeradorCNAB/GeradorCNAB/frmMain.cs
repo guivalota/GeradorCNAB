@@ -33,8 +33,43 @@ namespace GeradorCNAB
             try
             {
                 PesquisarTodosBancosAsync();
+                PesquisarEstadosAsync();
                 caminhoArquivo = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
                 txtCaminhoArquivo.Text = caminhoArquivo;
+
+                cmbTipoInscricaoEmpresaArquivo.DisplayMember = "Item2";
+                cmbTipoInscricaoEmpresaArquivo.ValueMember = "Item1";
+                foreach (var item in ComboBoxComponets.tipoRegistroEmpresa)
+                {
+                    cmbTipoInscricaoEmpresaArquivo.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
+                    
+                }
+                cmbTipoInscricaoEmpresaArquivo.SelectedIndex = 0;
+
+                cmbTipoOperacao.DisplayMember = "Item2";
+                cmbTipoOperacao.ValueMember = "Item1";
+                foreach (var item in ComboBoxComponets.tipoOperacao)
+                {
+                    cmbTipoOperacao.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
+                }
+                cmbTipoOperacao.SelectedIndex = 0;
+
+                cmbTipoServico.DisplayMember = "Item2";
+                cmbTipoServico.ValueMember = "Item1";
+                foreach (var item in ComboBoxComponets.tipoServico)
+                {
+                    cmbTipoServico.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
+                }
+                cmbTipoServico.SelectedIndex = 0;
+
+                cmbIndicativoFormaPagamento_Lote.DisplayMember = "Item2";
+                cmbIndicativoFormaPagamento_Lote.ValueMember = "Item1";
+                foreach (var item in ComboBoxComponets.indicativoFormaPagamento)
+                {
+                    cmbIndicativoFormaPagamento_Lote.Items.Add(new { Item1 = item.Item1, Item2 = item.Item2 });
+                }
+                cmbIndicativoFormaPagamento_Lote.SelectedIndex = 0;
+                
             }
             catch(Exception ex)
             {
@@ -58,8 +93,42 @@ namespace GeradorCNAB
                         .OrderBy(b => b.code)
                         .ToList();
                     cmbBancos.DataSource = bancos;
-                    cmbBancos.DisplayMember = "DisplayName"; 
-                    cmbBancos.ValueMember = "Code";
+                    cmbBancos.DisplayMember = "DisplayName";
+
+                    //List<Bancos> bancosLote = JsonConvert.DeserializeObject<List<Bancos>>(jsonString);
+                    List<Bancos> bancosLote = bancos
+                        .Where(b => b.code.HasValue)
+                        .OrderBy(b => b.code)
+                        .ToList();
+
+                    cmbBancosLote.DataSource = bancosLote;
+                    cmbBancosLote.DisplayMember = "DisplayName";
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw ex;
+            }
+        }
+
+        private async Task PesquisarEstadosAsync()
+        {
+            try
+            {
+                HttpResponseMessage response =
+                    await client.GetAsync($"https://brasilapi.com.br/api/ibge/uf/v1");
+                response.EnsureSuccessStatusCode();
+                if (response.IsSuccessStatusCode)
+                {
+                    String jsonString = await response.Content.ReadAsStringAsync();
+                    List<Estado_IBGE> estados = JsonConvert.DeserializeObject<List<Estado_IBGE>>(jsonString);
+                    estados = estados
+                        .OrderBy(b => b.sigla)
+                        .ToList();
+                    cmbEstado_Lote.DataSource = estados;
+                    cmbEstado_Lote.DisplayMember = "DisplayName";
+                    cmbEstado_Lote.ValueMember = "Sigla";
                 }
             }
             catch (Exception ex)
@@ -159,7 +228,7 @@ namespace GeradorCNAB
                 string Lote = txtNSA.Text;
                 string Registro = "0";
                 string CNAB1 = "";
-                string Empresa_Inscricao_Tipo = "";//cmbTipoInscricaoEmpresa.SelectedValue.ToString();
+                string Empresa_Inscricao_Tipo = cmbTipoInscricaoEmpresaArquivo.SelectedItem.GetType().GetProperty("Item1").GetValue(cmbTipoInscricaoEmpresaArquivo.SelectedItem, null).ToString();
                 string Empresa_Inscricao_Numero = txtNumeroInscricaoEmpresa.Text;
                 string Empresa_Convenio = txtCodigoConvenioBanco.Text;
                 string Empresa_ContaCorrente_Agencia_Codigo = txtAgencia.Text;

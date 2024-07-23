@@ -82,6 +82,8 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\API\Bancos.cs" />
+    <Compile Include="Models\API\ComboBoxComponets.cs" />
+    <Compile Include="Models\API\Estado_IBGE.cs" />
     <Compile Include="Models\Arquivos\Header_Arquivo.cs" />
     <Compile Include="Models\Arquivos\Trailer_Arquivo.cs" />
     <Compile Include="Models\Lotes\Header_Lote.cs" />

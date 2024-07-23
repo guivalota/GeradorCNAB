@@ -41,7 +41,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNumeroInscricaoEmpresa = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cmbTipoInscricaoEmpresa = new System.Windows.Forms.ComboBox();
+            this.cmbTipoInscricaoEmpresaArquivo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtNomeEmpresa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,7 +60,66 @@
             this.txtCaminhoArquivo = new System.Windows.Forms.TextBox();
             this.btnSelecionarArquivo = new System.Windows.Forms.Button();
             this.fbdArquivoSaida = new System.Windows.Forms.FolderBrowserDialog();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cmbTipoOperacao = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.cmbTipoServico = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtCodigoConvenioBanco_Lote = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtNumeroInscricaoEmpresa_Lote = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cmbTipoInscricaoEmpresa_Lote = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtNomeEmpresa_Lote = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtDVConta_Lote = new System.Windows.Forms.TextBox();
+            this.txtConta_Lote = new System.Windows.Forms.TextBox();
+            this.txtDVAgencia_Lote = new System.Windows.Forms.TextBox();
+            this.txtAgencia_Lote = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.cmbBancosLote = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtMensagem_Lote = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cmbIndicativoFormaPagamento_Lote = new System.Windows.Forms.ComboBox();
+            this.cmbEstado_Lote = new System.Windows.Forms.ComboBox();
+            this.txtCEP_Lote = new System.Windows.Forms.TextBox();
+            this.txtLogradouroCidade_Lote = new System.Windows.Forms.TextBox();
+            this.txtLogradouroComplemento_Lote = new System.Windows.Forms.TextBox();
+            this.txtLogradouroNumero_Lote = new System.Windows.Forms.TextBox();
+            this.txtLogradouro_Lote = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txtQtdRegistrosLote = new System.Windows.Forms.TextBox();
+            this.txtSomatoriosValoresLote = new System.Windows.Forms.TextBox();
+            this.txtSomatorioQuantidadeMoedasLote = new System.Windows.Forms.TextBox();
+            this.txtNumeroAvisosDebitoLote = new System.Windows.Forms.TextBox();
             this.gbHeaderArquivo.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbHeaderArquivo
@@ -77,7 +136,7 @@
             this.gbHeaderArquivo.Controls.Add(this.label9);
             this.gbHeaderArquivo.Controls.Add(this.txtNumeroInscricaoEmpresa);
             this.gbHeaderArquivo.Controls.Add(this.label8);
-            this.gbHeaderArquivo.Controls.Add(this.cmbTipoInscricaoEmpresa);
+            this.gbHeaderArquivo.Controls.Add(this.cmbTipoInscricaoEmpresaArquivo);
             this.gbHeaderArquivo.Controls.Add(this.label7);
             this.gbHeaderArquivo.Controls.Add(this.txtNomeEmpresa);
             this.gbHeaderArquivo.Controls.Add(this.label6);
@@ -91,7 +150,7 @@
             this.gbHeaderArquivo.Controls.Add(this.label2);
             this.gbHeaderArquivo.Controls.Add(this.cmbBancos);
             this.gbHeaderArquivo.Controls.Add(this.label1);
-            this.gbHeaderArquivo.Location = new System.Drawing.Point(12, 55);
+            this.gbHeaderArquivo.Location = new System.Drawing.Point(6, 6);
             this.gbHeaderArquivo.Name = "gbHeaderArquivo";
             this.gbHeaderArquivo.Size = new System.Drawing.Size(572, 229);
             this.gbHeaderArquivo.TabIndex = 0;
@@ -204,13 +263,14 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Número de Inscrição da Empresa:";
             // 
-            // cmbTipoInscricaoEmpresa
+            // cmbTipoInscricaoEmpresaArquivo
             // 
-            this.cmbTipoInscricaoEmpresa.FormattingEnabled = true;
-            this.cmbTipoInscricaoEmpresa.Location = new System.Drawing.Point(163, 136);
-            this.cmbTipoInscricaoEmpresa.Name = "cmbTipoInscricaoEmpresa";
-            this.cmbTipoInscricaoEmpresa.Size = new System.Drawing.Size(49, 21);
-            this.cmbTipoInscricaoEmpresa.TabIndex = 13;
+            this.cmbTipoInscricaoEmpresaArquivo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoInscricaoEmpresaArquivo.FormattingEnabled = true;
+            this.cmbTipoInscricaoEmpresaArquivo.Location = new System.Drawing.Point(163, 136);
+            this.cmbTipoInscricaoEmpresaArquivo.Name = "cmbTipoInscricaoEmpresaArquivo";
+            this.cmbTipoInscricaoEmpresaArquivo.Size = new System.Drawing.Size(134, 21);
+            this.cmbTipoInscricaoEmpresaArquivo.TabIndex = 13;
             // 
             // label7
             // 
@@ -327,7 +387,7 @@
             // 
             // btnGerarArquivo
             // 
-            this.btnGerarArquivo.Location = new System.Drawing.Point(473, 290);
+            this.btnGerarArquivo.Location = new System.Drawing.Point(487, 557);
             this.btnGerarArquivo.Name = "btnGerarArquivo";
             this.btnGerarArquivo.Size = new System.Drawing.Size(111, 23);
             this.btnGerarArquivo.TabIndex = 1;
@@ -362,16 +422,545 @@
             this.btnSelecionarArquivo.UseVisualStyleBackColor = true;
             this.btnSelecionarArquivo.Click += new System.EventHandler(this.btnSelecionarArquivo_Click);
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(266, 17);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 13);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Tipo de Operação:";
+            // 
+            // cmbTipoOperacao
+            // 
+            this.cmbTipoOperacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoOperacao.FormattingEnabled = true;
+            this.cmbTipoOperacao.Location = new System.Drawing.Point(368, 14);
+            this.cmbTipoOperacao.Name = "cmbTipoOperacao";
+            this.cmbTipoOperacao.Size = new System.Drawing.Size(188, 21);
+            this.cmbTipoOperacao.TabIndex = 29;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 43);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(85, 13);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Tipo de Serviço:";
+            // 
+            // cmbTipoServico
+            // 
+            this.cmbTipoServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoServico.FormattingEnabled = true;
+            this.cmbTipoServico.Location = new System.Drawing.Point(105, 40);
+            this.cmbTipoServico.Name = "cmbTipoServico";
+            this.cmbTipoServico.Size = new System.Drawing.Size(451, 21);
+            this.cmbTipoServico.TabIndex = 31;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(105, 14);
+            this.textBox2.MaxLength = 3;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(29, 20);
+            this.textBox2.TabIndex = 33;
+            this.textBox2.Text = "046";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 17);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 13);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "Layout do Lote:";
+            // 
+            // txtCodigoConvenioBanco_Lote
+            // 
+            this.txtCodigoConvenioBanco_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCodigoConvenioBanco_Lote.Location = new System.Drawing.Point(170, 152);
+            this.txtCodigoConvenioBanco_Lote.MaxLength = 20;
+            this.txtCodigoConvenioBanco_Lote.Name = "txtCodigoConvenioBanco_Lote";
+            this.txtCodigoConvenioBanco_Lote.Size = new System.Drawing.Size(389, 20);
+            this.txtCodigoConvenioBanco_Lote.TabIndex = 52;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 155);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(155, 13);
+            this.label19.TabIndex = 51;
+            this.label19.Text = "Código do Convênio no Banco:";
+            // 
+            // txtNumeroInscricaoEmpresa_Lote
+            // 
+            this.txtNumeroInscricaoEmpresa_Lote.Location = new System.Drawing.Point(466, 181);
+            this.txtNumeroInscricaoEmpresa_Lote.MaxLength = 14;
+            this.txtNumeroInscricaoEmpresa_Lote.Name = "txtNumeroInscricaoEmpresa_Lote";
+            this.txtNumeroInscricaoEmpresa_Lote.Size = new System.Drawing.Size(90, 20);
+            this.txtNumeroInscricaoEmpresa_Lote.TabIndex = 50;
+            this.txtNumeroInscricaoEmpresa_Lote.Text = "0000000000000";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(296, 184);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(167, 13);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "Número de Inscrição da Empresa:";
+            // 
+            // cmbTipoInscricaoEmpresa_Lote
+            // 
+            this.cmbTipoInscricaoEmpresa_Lote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipoInscricaoEmpresa_Lote.FormattingEnabled = true;
+            this.cmbTipoInscricaoEmpresa_Lote.Location = new System.Drawing.Point(166, 181);
+            this.cmbTipoInscricaoEmpresa_Lote.Name = "cmbTipoInscricaoEmpresa_Lote";
+            this.cmbTipoInscricaoEmpresa_Lote.Size = new System.Drawing.Size(124, 21);
+            this.cmbTipoInscricaoEmpresa_Lote.TabIndex = 48;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(9, 184);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(151, 13);
+            this.label21.TabIndex = 47;
+            this.label21.Text = "Tipo de Inscrição da Empresa:";
+            // 
+            // txtNomeEmpresa_Lote
+            // 
+            this.txtNomeEmpresa_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNomeEmpresa_Lote.Location = new System.Drawing.Point(105, 125);
+            this.txtNomeEmpresa_Lote.MaxLength = 30;
+            this.txtNomeEmpresa_Lote.Name = "txtNomeEmpresa_Lote";
+            this.txtNomeEmpresa_Lote.Size = new System.Drawing.Size(454, 20);
+            this.txtNomeEmpresa_Lote.TabIndex = 46;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(9, 128);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(97, 13);
+            this.label22.TabIndex = 45;
+            this.label22.Text = "Nome da Empresa:";
+            // 
+            // txtDVConta_Lote
+            // 
+            this.txtDVConta_Lote.Location = new System.Drawing.Point(454, 99);
+            this.txtDVConta_Lote.MaxLength = 1;
+            this.txtDVConta_Lote.Name = "txtDVConta_Lote";
+            this.txtDVConta_Lote.Size = new System.Drawing.Size(21, 20);
+            this.txtDVConta_Lote.TabIndex = 44;
+            // 
+            // txtConta_Lote
+            // 
+            this.txtConta_Lote.Location = new System.Drawing.Point(307, 99);
+            this.txtConta_Lote.MaxLength = 12;
+            this.txtConta_Lote.Name = "txtConta_Lote";
+            this.txtConta_Lote.Size = new System.Drawing.Size(100, 20);
+            this.txtConta_Lote.TabIndex = 43;
+            // 
+            // txtDVAgencia_Lote
+            // 
+            this.txtDVAgencia_Lote.Location = new System.Drawing.Point(201, 99);
+            this.txtDVAgencia_Lote.MaxLength = 1;
+            this.txtDVAgencia_Lote.Name = "txtDVAgencia_Lote";
+            this.txtDVAgencia_Lote.Size = new System.Drawing.Size(21, 20);
+            this.txtDVAgencia_Lote.TabIndex = 42;
+            // 
+            // txtAgencia_Lote
+            // 
+            this.txtAgencia_Lote.Location = new System.Drawing.Point(61, 99);
+            this.txtAgencia_Lote.MaxLength = 5;
+            this.txtAgencia_Lote.Name = "txtAgencia_Lote";
+            this.txtAgencia_Lote.Size = new System.Drawing.Size(100, 20);
+            this.txtAgencia_Lote.TabIndex = 41;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(420, 102);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(28, 13);
+            this.label23.TabIndex = 40;
+            this.label23.Text = "D.V:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(252, 102);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(38, 13);
+            this.label24.TabIndex = 39;
+            this.label24.Text = "Conta:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(167, 102);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(28, 13);
+            this.label25.TabIndex = 38;
+            this.label25.Text = "D.V:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(12, 102);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(49, 13);
+            this.label26.TabIndex = 37;
+            this.label26.Text = "Agencia:";
+            // 
+            // cmbBancosLote
+            // 
+            this.cmbBancosLote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBancosLote.FormattingEnabled = true;
+            this.cmbBancosLote.Location = new System.Drawing.Point(105, 72);
+            this.cmbBancosLote.Name = "cmbBancosLote";
+            this.cmbBancosLote.Size = new System.Drawing.Size(454, 21);
+            this.cmbBancosLote.TabIndex = 36;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(6, 75);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(100, 13);
+            this.label27.TabIndex = 35;
+            this.label27.Text = "Selecione o Banco:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(12, 211);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 13);
+            this.label28.TabIndex = 53;
+            this.label28.Text = "Mensagem:";
+            // 
+            // txtMensagem_Lote
+            // 
+            this.txtMensagem_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMensagem_Lote.Location = new System.Drawing.Point(80, 208);
+            this.txtMensagem_Lote.MaxLength = 40;
+            this.txtMensagem_Lote.Name = "txtMensagem_Lote";
+            this.txtMensagem_Lote.Size = new System.Drawing.Size(479, 20);
+            this.txtMensagem_Lote.TabIndex = 54;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(15, 42);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(596, 509);
+            this.tabControl1.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.gbHeaderArquivo);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(588, 483);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Header Arquivo";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.tabControl2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(588, 483);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Lote";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Location = new System.Drawing.Point(10, 6);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(572, 471);
+            this.tabControl2.TabIndex = 6;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.txtNumeroAvisosDebitoLote);
+            this.tabPage3.Controls.Add(this.txtSomatorioQuantidadeMoedasLote);
+            this.tabPage3.Controls.Add(this.txtSomatoriosValoresLote);
+            this.tabPage3.Controls.Add(this.txtQtdRegistrosLote);
+            this.tabPage3.Controls.Add(this.label38);
+            this.tabPage3.Controls.Add(this.label37);
+            this.tabPage3.Controls.Add(this.label36);
+            this.tabPage3.Controls.Add(this.label35);
+            this.tabPage3.Controls.Add(this.cmbIndicativoFormaPagamento_Lote);
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.cmbEstado_Lote);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Controls.Add(this.txtCEP_Lote);
+            this.tabPage3.Controls.Add(this.cmbTipoOperacao);
+            this.tabPage3.Controls.Add(this.txtLogradouroCidade_Lote);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.txtLogradouroComplemento_Lote);
+            this.tabPage3.Controls.Add(this.cmbTipoServico);
+            this.tabPage3.Controls.Add(this.txtLogradouroNumero_Lote);
+            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.txtLogradouro_Lote);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.label34);
+            this.tabPage3.Controls.Add(this.cmbBancosLote);
+            this.tabPage3.Controls.Add(this.label33);
+            this.tabPage3.Controls.Add(this.label26);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.label31);
+            this.tabPage3.Controls.Add(this.label24);
+            this.tabPage3.Controls.Add(this.label30);
+            this.tabPage3.Controls.Add(this.label23);
+            this.tabPage3.Controls.Add(this.label29);
+            this.tabPage3.Controls.Add(this.txtAgencia_Lote);
+            this.tabPage3.Controls.Add(this.label15);
+            this.tabPage3.Controls.Add(this.txtDVAgencia_Lote);
+            this.tabPage3.Controls.Add(this.txtMensagem_Lote);
+            this.tabPage3.Controls.Add(this.txtConta_Lote);
+            this.tabPage3.Controls.Add(this.label28);
+            this.tabPage3.Controls.Add(this.txtDVConta_Lote);
+            this.tabPage3.Controls.Add(this.txtCodigoConvenioBanco_Lote);
+            this.tabPage3.Controls.Add(this.label22);
+            this.tabPage3.Controls.Add(this.label19);
+            this.tabPage3.Controls.Add(this.txtNomeEmpresa_Lote);
+            this.tabPage3.Controls.Add(this.txtNumeroInscricaoEmpresa_Lote);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.label20);
+            this.tabPage3.Controls.Add(this.cmbTipoInscricaoEmpresa_Lote);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(564, 445);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Header";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // cmbIndicativoFormaPagamento_Lote
+            // 
+            this.cmbIndicativoFormaPagamento_Lote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIndicativoFormaPagamento_Lote.FormattingEnabled = true;
+            this.cmbIndicativoFormaPagamento_Lote.Location = new System.Drawing.Point(204, 286);
+            this.cmbIndicativoFormaPagamento_Lote.Name = "cmbIndicativoFormaPagamento_Lote";
+            this.cmbIndicativoFormaPagamento_Lote.Size = new System.Drawing.Size(158, 21);
+            this.cmbIndicativoFormaPagamento_Lote.TabIndex = 68;
+            // 
+            // cmbEstado_Lote
+            // 
+            this.cmbEstado_Lote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstado_Lote.FormattingEnabled = true;
+            this.cmbEstado_Lote.Location = new System.Drawing.Point(410, 260);
+            this.cmbEstado_Lote.Name = "cmbEstado_Lote";
+            this.cmbEstado_Lote.Size = new System.Drawing.Size(146, 21);
+            this.cmbEstado_Lote.TabIndex = 67;
+            // 
+            // txtCEP_Lote
+            // 
+            this.txtCEP_Lote.Location = new System.Drawing.Point(299, 260);
+            this.txtCEP_Lote.MaxLength = 9;
+            this.txtCEP_Lote.Name = "txtCEP_Lote";
+            this.txtCEP_Lote.Size = new System.Drawing.Size(63, 20);
+            this.txtCEP_Lote.TabIndex = 66;
+            // 
+            // txtLogradouroCidade_Lote
+            // 
+            this.txtLogradouroCidade_Lote.Location = new System.Drawing.Point(61, 260);
+            this.txtLogradouroCidade_Lote.Name = "txtLogradouroCidade_Lote";
+            this.txtLogradouroCidade_Lote.Size = new System.Drawing.Size(200, 20);
+            this.txtLogradouroCidade_Lote.TabIndex = 65;
+            // 
+            // txtLogradouroComplemento_Lote
+            // 
+            this.txtLogradouroComplemento_Lote.Location = new System.Drawing.Point(437, 234);
+            this.txtLogradouroComplemento_Lote.Name = "txtLogradouroComplemento_Lote";
+            this.txtLogradouroComplemento_Lote.Size = new System.Drawing.Size(121, 20);
+            this.txtLogradouroComplemento_Lote.TabIndex = 64;
+            // 
+            // txtLogradouroNumero_Lote
+            // 
+            this.txtLogradouroNumero_Lote.Location = new System.Drawing.Point(319, 234);
+            this.txtLogradouroNumero_Lote.Name = "txtLogradouroNumero_Lote";
+            this.txtLogradouroNumero_Lote.Size = new System.Drawing.Size(34, 20);
+            this.txtLogradouroNumero_Lote.TabIndex = 63;
+            // 
+            // txtLogradouro_Lote
+            // 
+            this.txtLogradouro_Lote.Location = new System.Drawing.Point(70, 234);
+            this.txtLogradouro_Lote.Name = "txtLogradouro_Lote";
+            this.txtLogradouro_Lote.Size = new System.Drawing.Size(191, 20);
+            this.txtLogradouro_Lote.TabIndex = 62;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(3, 289);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(196, 13);
+            this.label34.TabIndex = 61;
+            this.label34.Text = " Indicativo da Forma de Pagamento do :";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(364, 263);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(43, 13);
+            this.label33.TabIndex = 60;
+            this.label33.Text = "Estado:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(267, 263);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(31, 13);
+            this.label32.TabIndex = 59;
+            this.label32.Text = "CEP:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(12, 263);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(43, 13);
+            this.label31.TabIndex = 58;
+            this.label31.Text = "Cidade:";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(359, 237);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(74, 13);
+            this.label30.TabIndex = 57;
+            this.label30.Text = "Complemento:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(266, 237);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(47, 13);
+            this.label29.TabIndex = 56;
+            this.label29.Text = "Numero:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 237);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(64, 13);
+            this.label15.TabIndex = 55;
+            this.label15.Text = "Logradouro:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(564, 445);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "Segmento";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(6, 316);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(161, 13);
+            this.label35.TabIndex = 69;
+            this.label35.Text = "Quantidade de Registro do Lote:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(304, 316);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(115, 13);
+            this.label36.TabIndex = 70;
+            this.label36.Text = "Somatório dos Valores:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 342);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(186, 13);
+            this.label37.TabIndex = 71;
+            this.label37.Text = "Somatória de Quantidade de Moedas:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(308, 342);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(125, 13);
+            this.label38.TabIndex = 72;
+            this.label38.Text = "Número Aviso de Débito:";
+            // 
+            // txtQtdRegistrosLote
+            // 
+            this.txtQtdRegistrosLote.Location = new System.Drawing.Point(173, 313);
+            this.txtQtdRegistrosLote.Name = "txtQtdRegistrosLote";
+            this.txtQtdRegistrosLote.ReadOnly = true;
+            this.txtQtdRegistrosLote.Size = new System.Drawing.Size(100, 20);
+            this.txtQtdRegistrosLote.TabIndex = 73;
+            this.txtQtdRegistrosLote.Text = "0";
+            // 
+            // txtSomatoriosValoresLote
+            // 
+            this.txtSomatoriosValoresLote.Location = new System.Drawing.Point(423, 313);
+            this.txtSomatoriosValoresLote.Name = "txtSomatoriosValoresLote";
+            this.txtSomatoriosValoresLote.ReadOnly = true;
+            this.txtSomatoriosValoresLote.Size = new System.Drawing.Size(100, 20);
+            this.txtSomatoriosValoresLote.TabIndex = 74;
+            this.txtSomatoriosValoresLote.Text = "0";
+            // 
+            // txtSomatorioQuantidadeMoedasLote
+            // 
+            this.txtSomatorioQuantidadeMoedasLote.Location = new System.Drawing.Point(201, 339);
+            this.txtSomatorioQuantidadeMoedasLote.Name = "txtSomatorioQuantidadeMoedasLote";
+            this.txtSomatorioQuantidadeMoedasLote.ReadOnly = true;
+            this.txtSomatorioQuantidadeMoedasLote.Size = new System.Drawing.Size(100, 20);
+            this.txtSomatorioQuantidadeMoedasLote.TabIndex = 75;
+            this.txtSomatorioQuantidadeMoedasLote.Text = "0";
+            // 
+            // txtNumeroAvisosDebitoLote
+            // 
+            this.txtNumeroAvisosDebitoLote.Location = new System.Drawing.Point(439, 339);
+            this.txtNumeroAvisosDebitoLote.Name = "txtNumeroAvisosDebitoLote";
+            this.txtNumeroAvisosDebitoLote.ReadOnly = true;
+            this.txtNumeroAvisosDebitoLote.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroAvisosDebitoLote.TabIndex = 76;
+            this.txtNumeroAvisosDebitoLote.Text = "0";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(591, 325);
+            this.ClientSize = new System.Drawing.Size(618, 592);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnSelecionarArquivo);
             this.Controls.Add(this.txtCaminhoArquivo);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.btnGerarArquivo);
-            this.Controls.Add(this.gbHeaderArquivo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmMain";
@@ -379,6 +968,12 @@
             this.Text = "Gerador de CNAB 240";
             this.gbHeaderArquivo.ResumeLayout(false);
             this.gbHeaderArquivo.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -411,13 +1006,67 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtNumeroInscricaoEmpresa;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cmbTipoInscricaoEmpresa;
+        private System.Windows.Forms.ComboBox cmbTipoInscricaoEmpresaArquivo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnGerarArquivo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtCaminhoArquivo;
         private System.Windows.Forms.Button btnSelecionarArquivo;
         private System.Windows.Forms.FolderBrowserDialog fbdArquivoSaida;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox cmbTipoServico;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cmbTipoOperacao;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtMensagem_Lote;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtCodigoConvenioBanco_Lote;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtNumeroInscricaoEmpresa_Lote;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox cmbTipoInscricaoEmpresa_Lote;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtNomeEmpresa_Lote;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtDVConta_Lote;
+        private System.Windows.Forms.TextBox txtConta_Lote;
+        private System.Windows.Forms.TextBox txtDVAgencia_Lote;
+        private System.Windows.Forms.TextBox txtAgencia_Lote;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox cmbBancosLote;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.ComboBox cmbIndicativoFormaPagamento_Lote;
+        private System.Windows.Forms.ComboBox cmbEstado_Lote;
+        private System.Windows.Forms.TextBox txtCEP_Lote;
+        private System.Windows.Forms.TextBox txtLogradouroCidade_Lote;
+        private System.Windows.Forms.TextBox txtLogradouroComplemento_Lote;
+        private System.Windows.Forms.TextBox txtLogradouroNumero_Lote;
+        private System.Windows.Forms.TextBox txtLogradouro_Lote;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TextBox txtNumeroAvisosDebitoLote;
+        private System.Windows.Forms.TextBox txtSomatorioQuantidadeMoedasLote;
+        private System.Windows.Forms.TextBox txtSomatoriosValoresLote;
+        private System.Windows.Forms.TextBox txtQtdRegistrosLote;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
     }
 }
 
