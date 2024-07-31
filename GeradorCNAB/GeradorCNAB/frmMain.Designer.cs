@@ -91,6 +91,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txtNumeroAvisosDebitoLote = new System.Windows.Forms.TextBox();
+            this.txtSomatorioQuantidadeMoedasLote = new System.Windows.Forms.TextBox();
+            this.txtSomatoriosValoresLote = new System.Windows.Forms.TextBox();
+            this.txtQtdRegistrosLote = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.cmbIndicativoFormaPagamento_Lote = new System.Windows.Forms.ComboBox();
             this.cmbEstado_Lote = new System.Windows.Forms.ComboBox();
             this.txtCEP_Lote = new System.Windows.Forms.TextBox();
@@ -106,20 +114,14 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.txtQtdRegistrosLote = new System.Windows.Forms.TextBox();
-            this.txtSomatoriosValoresLote = new System.Windows.Forms.TextBox();
-            this.txtSomatorioQuantidadeMoedasLote = new System.Windows.Forms.TextBox();
-            this.txtNumeroAvisosDebitoLote = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gbHeaderArquivo.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbHeaderArquivo
@@ -453,9 +455,9 @@
             // 
             this.cmbTipoServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoServico.FormattingEnabled = true;
-            this.cmbTipoServico.Location = new System.Drawing.Point(105, 40);
+            this.cmbTipoServico.Location = new System.Drawing.Point(112, 40);
             this.cmbTipoServico.Name = "cmbTipoServico";
-            this.cmbTipoServico.Size = new System.Drawing.Size(451, 21);
+            this.cmbTipoServico.Size = new System.Drawing.Size(444, 21);
             this.cmbTipoServico.TabIndex = 31;
             // 
             // textBox2
@@ -620,9 +622,9 @@
             // 
             this.cmbBancosLote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBancosLote.FormattingEnabled = true;
-            this.cmbBancosLote.Location = new System.Drawing.Point(105, 72);
+            this.cmbBancosLote.Location = new System.Drawing.Point(112, 72);
             this.cmbBancosLote.Name = "cmbBancosLote";
-            this.cmbBancosLote.Size = new System.Drawing.Size(454, 21);
+            this.cmbBancosLote.Size = new System.Drawing.Size(447, 21);
             this.cmbBancosLote.TabIndex = 36;
             // 
             // label27
@@ -664,6 +666,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.gbHeaderArquivo);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -752,53 +755,126 @@
             this.tabPage3.Text = "Header";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // txtNumeroAvisosDebitoLote
+            // 
+            this.txtNumeroAvisosDebitoLote.Location = new System.Drawing.Point(439, 373);
+            this.txtNumeroAvisosDebitoLote.Name = "txtNumeroAvisosDebitoLote";
+            this.txtNumeroAvisosDebitoLote.ReadOnly = true;
+            this.txtNumeroAvisosDebitoLote.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroAvisosDebitoLote.TabIndex = 76;
+            this.txtNumeroAvisosDebitoLote.Text = "0";
+            // 
+            // txtSomatorioQuantidadeMoedasLote
+            // 
+            this.txtSomatorioQuantidadeMoedasLote.Location = new System.Drawing.Point(201, 373);
+            this.txtSomatorioQuantidadeMoedasLote.Name = "txtSomatorioQuantidadeMoedasLote";
+            this.txtSomatorioQuantidadeMoedasLote.ReadOnly = true;
+            this.txtSomatorioQuantidadeMoedasLote.Size = new System.Drawing.Size(100, 20);
+            this.txtSomatorioQuantidadeMoedasLote.TabIndex = 75;
+            this.txtSomatorioQuantidadeMoedasLote.Text = "0";
+            // 
+            // txtSomatoriosValoresLote
+            // 
+            this.txtSomatoriosValoresLote.Location = new System.Drawing.Point(423, 347);
+            this.txtSomatoriosValoresLote.Name = "txtSomatoriosValoresLote";
+            this.txtSomatoriosValoresLote.ReadOnly = true;
+            this.txtSomatoriosValoresLote.Size = new System.Drawing.Size(100, 20);
+            this.txtSomatoriosValoresLote.TabIndex = 74;
+            this.txtSomatoriosValoresLote.Text = "0";
+            // 
+            // txtQtdRegistrosLote
+            // 
+            this.txtQtdRegistrosLote.Location = new System.Drawing.Point(190, 347);
+            this.txtQtdRegistrosLote.Name = "txtQtdRegistrosLote";
+            this.txtQtdRegistrosLote.ReadOnly = true;
+            this.txtQtdRegistrosLote.Size = new System.Drawing.Size(100, 20);
+            this.txtQtdRegistrosLote.TabIndex = 73;
+            this.txtQtdRegistrosLote.Text = "0";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(308, 376);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(125, 13);
+            this.label38.TabIndex = 72;
+            this.label38.Text = "Número Aviso de Débito:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 376);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(186, 13);
+            this.label37.TabIndex = 71;
+            this.label37.Text = "Somatória de Quantidade de Moedas:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(304, 350);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(115, 13);
+            this.label36.TabIndex = 70;
+            this.label36.Text = "Somatório dos Valores:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(12, 350);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(161, 13);
+            this.label35.TabIndex = 69;
+            this.label35.Text = "Quantidade de Registro do Lote:";
+            // 
             // cmbIndicativoFormaPagamento_Lote
             // 
             this.cmbIndicativoFormaPagamento_Lote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIndicativoFormaPagamento_Lote.FormattingEnabled = true;
-            this.cmbIndicativoFormaPagamento_Lote.Location = new System.Drawing.Point(204, 286);
+            this.cmbIndicativoFormaPagamento_Lote.Location = new System.Drawing.Point(216, 320);
             this.cmbIndicativoFormaPagamento_Lote.Name = "cmbIndicativoFormaPagamento_Lote";
-            this.cmbIndicativoFormaPagamento_Lote.Size = new System.Drawing.Size(158, 21);
+            this.cmbIndicativoFormaPagamento_Lote.Size = new System.Drawing.Size(340, 21);
             this.cmbIndicativoFormaPagamento_Lote.TabIndex = 68;
             // 
             // cmbEstado_Lote
             // 
             this.cmbEstado_Lote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado_Lote.FormattingEnabled = true;
-            this.cmbEstado_Lote.Location = new System.Drawing.Point(410, 260);
+            this.cmbEstado_Lote.Location = new System.Drawing.Point(410, 294);
             this.cmbEstado_Lote.Name = "cmbEstado_Lote";
             this.cmbEstado_Lote.Size = new System.Drawing.Size(146, 21);
             this.cmbEstado_Lote.TabIndex = 67;
             // 
             // txtCEP_Lote
             // 
-            this.txtCEP_Lote.Location = new System.Drawing.Point(299, 260);
+            this.txtCEP_Lote.Location = new System.Drawing.Point(48, 237);
             this.txtCEP_Lote.MaxLength = 8;
             this.txtCEP_Lote.Name = "txtCEP_Lote";
             this.txtCEP_Lote.Size = new System.Drawing.Size(63, 20);
             this.txtCEP_Lote.TabIndex = 66;
+            this.txtCEP_Lote.Leave += new System.EventHandler(this.txtCEP_Lote_Leave);
             // 
             // txtLogradouroCidade_Lote
             // 
             this.txtLogradouroCidade_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLogradouroCidade_Lote.Location = new System.Drawing.Point(61, 260);
+            this.txtLogradouroCidade_Lote.Location = new System.Drawing.Point(166, 237);
             this.txtLogradouroCidade_Lote.MaxLength = 20;
             this.txtLogradouroCidade_Lote.Name = "txtLogradouroCidade_Lote";
-            this.txtLogradouroCidade_Lote.Size = new System.Drawing.Size(200, 20);
+            this.txtLogradouroCidade_Lote.Size = new System.Drawing.Size(390, 20);
             this.txtLogradouroCidade_Lote.TabIndex = 65;
             // 
             // txtLogradouroComplemento_Lote
             // 
             this.txtLogradouroComplemento_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLogradouroComplemento_Lote.Location = new System.Drawing.Point(437, 234);
+            this.txtLogradouroComplemento_Lote.Location = new System.Drawing.Point(94, 294);
             this.txtLogradouroComplemento_Lote.MaxLength = 15;
             this.txtLogradouroComplemento_Lote.Name = "txtLogradouroComplemento_Lote";
-            this.txtLogradouroComplemento_Lote.Size = new System.Drawing.Size(121, 20);
+            this.txtLogradouroComplemento_Lote.Size = new System.Drawing.Size(264, 20);
             this.txtLogradouroComplemento_Lote.TabIndex = 64;
             // 
             // txtLogradouroNumero_Lote
             // 
-            this.txtLogradouroNumero_Lote.Location = new System.Drawing.Point(319, 234);
+            this.txtLogradouroNumero_Lote.Location = new System.Drawing.Point(524, 264);
             this.txtLogradouroNumero_Lote.MaxLength = 5;
             this.txtLogradouroNumero_Lote.Name = "txtLogradouroNumero_Lote";
             this.txtLogradouroNumero_Lote.Size = new System.Drawing.Size(34, 20);
@@ -807,16 +883,16 @@
             // txtLogradouro_Lote
             // 
             this.txtLogradouro_Lote.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtLogradouro_Lote.Location = new System.Drawing.Point(70, 234);
+            this.txtLogradouro_Lote.Location = new System.Drawing.Point(82, 267);
             this.txtLogradouro_Lote.MaxLength = 30;
             this.txtLogradouro_Lote.Name = "txtLogradouro_Lote";
-            this.txtLogradouro_Lote.Size = new System.Drawing.Size(191, 20);
+            this.txtLogradouro_Lote.Size = new System.Drawing.Size(383, 20);
             this.txtLogradouro_Lote.TabIndex = 62;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(3, 289);
+            this.label34.Location = new System.Drawing.Point(14, 323);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(196, 13);
             this.label34.TabIndex = 61;
@@ -825,7 +901,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(364, 263);
+            this.label33.Location = new System.Drawing.Point(364, 297);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(43, 13);
             this.label33.TabIndex = 60;
@@ -834,7 +910,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(267, 263);
+            this.label32.Location = new System.Drawing.Point(14, 240);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(31, 13);
             this.label32.TabIndex = 59;
@@ -843,7 +919,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(12, 263);
+            this.label31.Location = new System.Drawing.Point(117, 240);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(43, 13);
             this.label31.TabIndex = 58;
@@ -852,7 +928,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(359, 237);
+            this.label30.Location = new System.Drawing.Point(14, 297);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(74, 13);
             this.label30.TabIndex = 57;
@@ -861,7 +937,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(266, 237);
+            this.label29.Location = new System.Drawing.Point(471, 267);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(47, 13);
             this.label29.TabIndex = 56;
@@ -870,7 +946,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 237);
+            this.label15.Location = new System.Drawing.Point(12, 271);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(64, 13);
             this.label15.TabIndex = 55;
@@ -886,77 +962,13 @@
             this.tabPage4.Text = "Segmento";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // label35
+            // dataGridView1
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(6, 316);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(161, 13);
-            this.label35.TabIndex = 69;
-            this.label35.Text = "Quantidade de Registro do Lote:";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(304, 316);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(115, 13);
-            this.label36.TabIndex = 70;
-            this.label36.Text = "Somatório dos Valores:";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(9, 342);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(186, 13);
-            this.label37.TabIndex = 71;
-            this.label37.Text = "Somatória de Quantidade de Moedas:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(308, 342);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(125, 13);
-            this.label38.TabIndex = 72;
-            this.label38.Text = "Número Aviso de Débito:";
-            // 
-            // txtQtdRegistrosLote
-            // 
-            this.txtQtdRegistrosLote.Location = new System.Drawing.Point(173, 313);
-            this.txtQtdRegistrosLote.Name = "txtQtdRegistrosLote";
-            this.txtQtdRegistrosLote.ReadOnly = true;
-            this.txtQtdRegistrosLote.Size = new System.Drawing.Size(100, 20);
-            this.txtQtdRegistrosLote.TabIndex = 73;
-            this.txtQtdRegistrosLote.Text = "0";
-            // 
-            // txtSomatoriosValoresLote
-            // 
-            this.txtSomatoriosValoresLote.Location = new System.Drawing.Point(423, 313);
-            this.txtSomatoriosValoresLote.Name = "txtSomatoriosValoresLote";
-            this.txtSomatoriosValoresLote.ReadOnly = true;
-            this.txtSomatoriosValoresLote.Size = new System.Drawing.Size(100, 20);
-            this.txtSomatoriosValoresLote.TabIndex = 74;
-            this.txtSomatoriosValoresLote.Text = "0";
-            // 
-            // txtSomatorioQuantidadeMoedasLote
-            // 
-            this.txtSomatorioQuantidadeMoedasLote.Location = new System.Drawing.Point(201, 339);
-            this.txtSomatorioQuantidadeMoedasLote.Name = "txtSomatorioQuantidadeMoedasLote";
-            this.txtSomatorioQuantidadeMoedasLote.ReadOnly = true;
-            this.txtSomatorioQuantidadeMoedasLote.Size = new System.Drawing.Size(100, 20);
-            this.txtSomatorioQuantidadeMoedasLote.TabIndex = 75;
-            this.txtSomatorioQuantidadeMoedasLote.Text = "0";
-            // 
-            // txtNumeroAvisosDebitoLote
-            // 
-            this.txtNumeroAvisosDebitoLote.Location = new System.Drawing.Point(439, 339);
-            this.txtNumeroAvisosDebitoLote.Name = "txtNumeroAvisosDebitoLote";
-            this.txtNumeroAvisosDebitoLote.ReadOnly = true;
-            this.txtNumeroAvisosDebitoLote.Size = new System.Drawing.Size(100, 20);
-            this.txtNumeroAvisosDebitoLote.TabIndex = 76;
-            this.txtNumeroAvisosDebitoLote.Text = "0";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 265);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(572, 150);
+            this.dataGridView1.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -981,6 +993,7 @@
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1074,6 +1087,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

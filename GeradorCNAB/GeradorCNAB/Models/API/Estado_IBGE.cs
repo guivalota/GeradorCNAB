@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeradorCNAB.Models.API
 {
-    class Estado_IBGE
+    public class Estado_IBGE
     {
         public int id { get; set; }
         public string sigla { get; set; }
@@ -18,7 +18,7 @@ namespace GeradorCNAB.Models.API
             get { return $"{sigla} - {nome}"; }
         }
     }
-    class Regiao
+    public class Regiao
     {
         public int id { get; set; }
         public string sigla { get; set; }

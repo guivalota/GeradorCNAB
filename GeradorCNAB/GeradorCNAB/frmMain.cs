@@ -2,6 +2,7 @@
 using GeradorCNAB.Models.API;
 using GeradorCNAB.Models.Arquivos;
 using GeradorCNAB.Models.Lotes;
+using GeradorCNAB.Service;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace GeradorCNAB
     {
         static HttpClient client = new HttpClient();
         string caminhoArquivo = "";
+        static CEP_Service services_CEP = new CEP_Service();
 
         List<Lote_Inf> lotes = new List<Lote_Inf>();
         public frmMain()
@@ -30,8 +32,8 @@ namespace GeradorCNAB
         {
             try
             {
-                PesquisarTodosBancosAsync();
-                PesquisarEstadosAsync();
+                PesquisarTodosBancos();
+                PesquisarEstados();
                 caminhoArquivo = Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory.ToString());
                 txtCaminhoArquivo.Text = caminhoArquivo;
 
@@ -81,33 +83,15 @@ namespace GeradorCNAB
             }
         }
 
-        private async Task PesquisarTodosBancosAsync()
+        private async Task PesquisarTodosBancos()
         {
             try
             {
-                HttpResponseMessage response = 
-                    await client.GetAsync($"https://brasilapi.com.br/api/banks/v1");
-                response.EnsureSuccessStatusCode();
-                if (response.IsSuccessStatusCode)
-                {
-                    String jsonString = await response.Content.ReadAsStringAsync();
-                    List<Bancos> bancos = JsonConvert.DeserializeObject<List<Bancos>>(jsonString);
-                    bancos = bancos
-                        .Where(b => b.code.HasValue)
-                        .OrderBy(b => b.code)
-                        .ToList();
-                    cmbBancos.DataSource = bancos;
-                    cmbBancos.DisplayMember = "DisplayName";
+                cmbBancos.DataSource = await services_CEP.PesquisarTodosBancosAsync();
+                cmbBancos.DisplayMember = "DisplayName";
 
-                    //List<Bancos> bancosLote = JsonConvert.DeserializeObject<List<Bancos>>(jsonString);
-                    List<Bancos> bancosLote = bancos
-                        .Where(b => b.code.HasValue)
-                        .OrderBy(b => b.code)
-                        .ToList();
-
-                    cmbBancosLote.DataSource = bancosLote;
-                    cmbBancosLote.DisplayMember = "DisplayName";
-                }
+                cmbBancosLote.DataSource = await services_CEP.PesquisarTodosBancosAsync();
+                cmbBancosLote.DisplayMember = "DisplayName";   
             }
             catch (Exception ex)
             {
@@ -116,24 +100,14 @@ namespace GeradorCNAB
             }
         }
 
-        private async Task PesquisarEstadosAsync()
+        private async Task PesquisarEstados()
         {
             try
             {
-                HttpResponseMessage response =
-                    await client.GetAsync($"https://brasilapi.com.br/api/ibge/uf/v1");
-                response.EnsureSuccessStatusCode();
-                if (response.IsSuccessStatusCode)
-                {
-                    String jsonString = await response.Content.ReadAsStringAsync();
-                    List<Estado_IBGE> estados = JsonConvert.DeserializeObject<List<Estado_IBGE>>(jsonString);
-                    estados = estados
-                        .OrderBy(b => b.sigla)
-                        .ToList();
+                    List<Estado_IBGE> estados = await services_CEP.PesquisarEstadosAsync();
                     cmbEstado_Lote.DataSource = estados;
                     cmbEstado_Lote.DisplayMember = "DisplayName";
                     cmbEstado_Lote.ValueMember = "Sigla";
-                }
             }
             catch (Exception ex)
             {
@@ -359,6 +333,34 @@ namespace GeradorCNAB
                 lote = null;
             }
             return lote;
+        }
+
+        private void txtCEP_Lote_Leave(object sender, EventArgs e)
+        {
+            PesquisarCEP();
+        }
+
+        private async void PesquisarCEP()
+        {
+            try
+            {
+                if (txtCEP_Lote.Text.Replace(" ", "") != "")
+                {
+                    string cep = txtCEP_Lote.Text.Replace("-", "");
+                    CEP_Inf retorno = await services_CEP.PesquisarCEPAsync(cep); 
+                    
+                    if(retorno != null)
+                    {
+                        txtLogradouroCidade_Lote.Text = retorno.city;
+                        txtLogradouro_Lote.Text = retorno.street + ", " + retorno.neighborhood;
+                        cmbEstado_Lote.SelectedValue = retorno.state;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro:" + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }

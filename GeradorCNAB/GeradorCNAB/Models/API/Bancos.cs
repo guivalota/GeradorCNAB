@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeradorCNAB.Models.API
 {
-    class Bancos
+    public class Bancos
     {
         public string ispb;
         public string name;
